@@ -93,7 +93,7 @@ function HomePage() {
             </Reveal>
             <Reveal delay={0.2}>
               <div className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
-                {["AMC & on-site support", "Genuine licensed software", "Enterprise-grade networking"].map((t) => (
+                {["AMC & on-site support", "Genuine licensed software", "Networking"].map((t) => (
                   <span key={t} className="inline-flex items-center gap-2">
                     <CheckCircle2 size={16} className="text-brand-orange" /> {t}
                   </span>
@@ -115,7 +115,7 @@ function HomePage() {
                 />
               </div>
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 1, y: 0 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.6 }}
                 className="absolute -bottom-6 -left-6 hidden md:flex items-center gap-3 rounded-2xl border border-border bg-card px-4 py-3 shadow-soft"

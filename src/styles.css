@@ -50,11 +50,16 @@
   --radius: 0.875rem;
 
   /* Brand palette */
-  --brand-plum: oklch(0.27 0.04 18);       /* #2E1F27 */
-  --brand-coffee: oklch(0.45 0.10 50);     /* #854D27 */
-  --brand-orange: oklch(0.66 0.16 48);     /* #DD7230 */
-  --brand-amber: oklch(0.84 0.13 86);      /* #F4C95D */
-  --brand-cream: oklch(0.93 0.08 110);     /* #E7E393 */
+  --brand-plum: oklch(0.27 0.04 18);
+  /* #2E1F27 */
+  --brand-coffee: oklch(0.45 0.10 50);
+  /* #854D27 */
+  --brand-orange: oklch(0.66 0.16 48);
+  /* #DD7230 */
+  --brand-amber: oklch(0.84 0.13 86);
+  /* #F4C95D */
+  --brand-cream: oklch(0.93 0.08 110);
+  /* #E7E393 */
 
   /* Semantic */
   --background: oklch(0.995 0.002 90);
@@ -99,8 +104,14 @@
 }
 
 @layer base {
-  * { border-color: var(--color-border); }
-  html { scroll-behavior: smooth; }
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
@@ -109,13 +120,28 @@
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
-  h1, h2, h3, h4 { letter-spacing: -0.02em; font-weight: 600; }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    letter-spacing: -0.02em;
+    font-weight: 600;
+  }
 }
 
 @layer utilities {
-  .container-x { @apply mx-auto w-full max-w-7xl px-6 lg:px-8; }
-  .text-balance { text-wrap: balance; }
-  .text-pretty { text-wrap: pretty; }
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-6 lg:px-8;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
 
   .grid-bg {
     background-image:
@@ -127,14 +153,15 @@
 
   .gradient-warm {
     background: linear-gradient(135deg,
-      color-mix(in oklab, var(--brand-cream) 30%, transparent) 0%,
-      color-mix(in oklab, var(--brand-amber) 18%, transparent) 50%,
-      color-mix(in oklab, var(--brand-orange) 12%, transparent) 100%);
+        color-mix(in oklab, var(--brand-cream) 30%, transparent) 0%,
+        color-mix(in oklab, var(--brand-amber) 18%, transparent) 50%,
+        color-mix(in oklab, var(--brand-orange) 12%, transparent) 100%);
   }
 
   .card-hover {
-    transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease, border-color .3s ease;
+    transition: transform .35s cubic-bezier(.2, .7, .2, 1), box-shadow .35s ease, border-color .3s ease;
   }
+
   .card-hover:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-lift);
@@ -151,5 +178,10 @@
     vertical-align: -0.15em;
     animation: caret-blink 1s steps(2) infinite;
   }
-  @keyframes caret-blink { 50% { opacity: 0; } }
+
+  @keyframes caret-blink {
+    50% {
+      opacity: 1;
+    }
+  }
 }
