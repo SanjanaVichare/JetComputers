@@ -61,60 +61,50 @@ function HomePage() {
 
         <div className="container-x grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <Reveal delay={0.05}>
-              <h1 className="mt-5 text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-balance">
-                Modern technology, <br className="hidden md:block" />
-                built around your <TypingText />
-              </h1>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <p className="mt-6 max-w-xl text-base md:text-lg text-muted-foreground text-pretty">
-                Jet Computers delivers reliable IT solutions for businesses and individuals —
-                from custom PCs and networking to software, servers and ongoing support.
-              </p>
-            </Reveal>
-            <Reveal delay={0.15}>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link
-                  to="/contact"
-                  className="group inline-flex items-center gap-2 rounded-full bg-brand-plum text-background px-5 py-3 text-sm font-medium hover:opacity-90 transition-opacity shadow-soft"
-                >
-                  Get a free consultation
-                  <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
-                </Link>
-                <Link
-                  to="/services"
-                  className="inline-flex items-center gap-2 rounded-full border border-border bg-background/80 backdrop-blur px-5 py-3 text-sm font-medium hover:bg-background transition-colors"
-                >
-                  Explore services
-                </Link>
-              </div>
-            </Reveal>
-            <Reveal delay={0.2}>
-              <div className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
-                {["AMC & on-site support", "Genuine licensed software", "Networking"].map((t) => (
-                  <span key={t} className="inline-flex items-center gap-2">
-                    <CheckCircle2 size={16} className="text-brand-orange" /> {t}
-                  </span>
-                ))}
-              </div>
-            </Reveal>
+            <h1 className="mt-5 text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-balance">
+              Modern technology, <br className="hidden md:block" />
+              built around your <TypingText />
+            </h1>
+            <p className="mt-6 max-w-xl text-base md:text-lg text-muted-foreground text-pretty">
+              Jet Computers delivers reliable IT solutions for businesses and individuals —
+              from custom PCs and networking to software, servers and ongoing support.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                to="/contact"
+                className="group inline-flex items-center gap-2 rounded-full bg-brand-plum text-background px-5 py-3 text-sm font-medium hover:opacity-90 transition-opacity shadow-soft"
+              >
+                Get a free consultation
+                <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
+              </Link>
+              <Link
+                to="/services"
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-background/80 backdrop-blur px-5 py-3 text-sm font-medium hover:bg-background transition-colors"
+              >
+                Explore services
+              </Link>
+            </div>
+            <div className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
+              {["AMC & on-site support", "Genuine licensed software", "Networking"].map((t) => (
+                <span key={t} className="inline-flex items-center gap-2">
+                  <CheckCircle2 size={16} className="text-brand-orange" /> {t}
+                </span>
+              ))}
+            </div>
           </div>
 
-          <Reveal delay={0.15}>
-            <div className="relative">
-              <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-gradient-to-br from-brand-amber/30 via-brand-orange/15 to-transparent blur-2xl" />
-              <div className="rounded-3xl border border-border bg-card shadow-[var(--shadow-lift)] overflow-hidden">
-                <img
-                  src={heroImg}
-                  alt="IT infrastructure visual showing servers and networking"
-                  width={1600}
-                  height={1200}
-                  className="w-full h-auto"
-                />
-              </div>
+          <div className="relative">
+            <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-gradient-to-br from-brand-amber/30 via-brand-orange/15 to-transparent blur-2xl" />
+            <div className="rounded-3xl border border-border bg-card shadow-[var(--shadow-lift)] overflow-hidden">
+              <img
+                src={heroImg}
+                alt="IT infrastructure visual showing servers and networking"
+                width={1600}
+                height={1200}
+                className="w-full h-auto"
+              />
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 
