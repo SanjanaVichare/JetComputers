@@ -1,11 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
-  ArrowRight, CheckCircle2, ChevronDown, Server, Cpu, Network, ShieldCheck,
-  Cloud, Database, Wrench, Monitor, Mail, Phone,
+  ArrowRight, CheckCircle2, ChevronDown, Mail, Phone,
 } from "lucide-react";
 import { Layout } from "@/components/site/Layout";
-import { NetworkBg } from "@/components/site/NetworkBg";
 import { Reveal } from "@/components/site/Reveal";
 import { Counter } from "@/components/site/Counter";
 import { services, whyChooseUs } from "@/components/site/services-data";
@@ -23,33 +21,6 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
-const typingWords = ["Hardware.", "Networking.", "Servers.", "Software.", "Support."];
-
-function TypingText() {
-  const [i, setI] = useState(0);
-  const [text, setText] = useState("");
-  const [deleting, setDeleting] = useState(false);
-
-  useEffect(() => {
-    const word = typingWords[i % typingWords.length];
-    const speed = deleting ? 50 : 95;
-    const t = setTimeout(() => {
-      if (!deleting) {
-        const next = word.slice(0, text.length + 1);
-        setText(next);
-        if (next === word) setTimeout(() => setDeleting(true), 1400);
-      } else {
-        const next = word.slice(0, text.length - 1);
-        setText(next);
-        if (next.length === 0) { setDeleting(false); setI((v) => v + 1); }
-      }
-    }, speed);
-    return () => clearTimeout(t);
-  }, [text, deleting, i]);
-
-  return <span className="text-brand-orange caret">{text}</span>;
-}
-
 function HomePage() {
   return (
     <Layout>
@@ -57,26 +28,26 @@ function HomePage() {
       <section className="relative pt-32 md:pt-40 pb-20 overflow-hidden">
         <div className="absolute inset-0 -z-10 gradient-warm opacity-70" />
         <div className="absolute inset-0 -z-10 grid-bg" />
-        <NetworkBg className="absolute inset-0 -z-10 opacity-70" />
 
         <div className="container-x grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <h1 className="mt-5 text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-balance">
               Modern technology, <br className="hidden md:block" />
-              built around your <TypingText />
+              built around your IT.
             </h1>
             <p className="mt-6 max-w-xl text-base md:text-lg text-muted-foreground text-pretty">
               Jet Computers delivers reliable IT solutions for businesses and individuals —
               from custom PCs and networking to software, servers and ongoing support.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a href="https://wa.me/919821488409?text=Hi%20Jet%20Computers%2C%20I%20would%20like%20a%20free%20consultation."
+              <a
+                href="https://wa.me/919821488409?text=Hi%20Jet%20Computers%2C%20I%20would%20like%20a%20free%20consultation."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 rounded-full bg-brand-plum text-background px-5 py-3 text-sm font-medium hover:opacity-90 transition-opacity shadow-soft"
+                className="inline-flex items-center gap-2 rounded-full bg-brand-plum text-background px-5 py-3 text-sm font-medium hover:opacity-90 transition-opacity shadow-soft"
               >
                 Get a free consultation
-                <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
+                <ArrowRight size={16} />
               </a>
               <Link
                 to="/services"
@@ -220,7 +191,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* CONTACT FORM */}
+      {/* CONTACT */}
       <section id="contact" className="py-20 md:py-28">
         <div className="container-x grid lg:grid-cols-2 gap-12 items-start">
           <Reveal>
@@ -233,16 +204,36 @@ function HomePage() {
                 Whether it's a single PC build or a full office rollout, we'll listen first and recommend what's right.
               </p>
               <div className="mt-8 space-y-3 text-sm">
-                <a href="https://wa.me/919821488409" className="flex items-center gap-3 text-foreground hover:text-brand-orange">
+                <a
+                  href="https://wa.me/919821488409?text=Hi%20Jet%20Computers%2C%20I%20need%20IT%20support."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-foreground hover:text-brand-orange"
+                >
                   <Phone size={18} className="text-brand-coffee" /> +91 98214 88409
                 </a>
-                <a href="mailto:aniruddha_vichare1@reddifmail.com" className="flex items-center gap-3 text-foreground hover:text-brand-orange break-all">
+                <a
+                  href="mailto:aniruddha_vichare1@reddifmail.com"
+                  className="flex items-center gap-3 text-foreground hover:text-brand-orange break-all"
+                >
                   <Mail size={18} className="text-brand-coffee" /> aniruddha_vichare1@reddifmail.com
+                </a>
+              </div>
+              <div className="mt-8">
+                <a
+                  href="https://wa.me/919821488409?text=Hi%20Jet%20Computers%2C%20I%20would%20like%20to%20get%20in%20touch."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#25D366] text-white px-6 py-3 text-sm font-medium hover:opacity-90"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                  </svg>
+                  Chat on WhatsApp
                 </a>
               </div>
             </div>
           </Reveal>
-          <Reveal delay={0.1}><ContactForm /></Reveal>
         </div>
       </section>
 
@@ -260,12 +251,14 @@ function HomePage() {
                   Schedule a free consultation. We'll audit your setup and share a clear plan — no pressure.
                 </p>
               </div>
-              <Link
-                to="/contact"
+              <a
+                href="https://wa.me/919821488409?text=Hi%20Jet%20Computers%2C%20I%20would%20like%20to%20book%20a%20consultation."
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-background text-brand-plum px-5 py-3 text-sm font-semibold hover:bg-brand-amber transition-colors"
               >
                 Book a consultation <ArrowRight size={16} />
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -291,7 +284,7 @@ function ServiceCard({ service }: { service: (typeof services)[number] }) {
 const faqs = [
   { q: "Do you provide on-site support in Mumbai?", a: "Yes. We offer on-site engineering across Mumbai with same-day response for AMC clients and priority bookings for one-off jobs." },
   { q: "What does an Annual Maintenance Contract include?", a: "Preventive servicing, unlimited remote support, scheduled on-site visits, OS and security patching, and discounted spare parts — tailored per device count." },
-  { q: "Can you handle a complete office IT setup?", a: "Absolutely. We plan, procure and deploy workstations, networking, printers, servers,  and security — and stay on for support afterwards." },
+  { q: "Can you handle a complete office IT setup?", a: "Absolutely. We plan, procure and deploy workstations, networking, printers, servers and security — and stay on for support afterwards." },
   { q: "Do you sell genuine, licensed software?", a: "Yes. We supply only licensed software from authorized partners, with proper invoicing, activation and renewal reminders." },
   { q: "How do I get a quote?", a: "Call us at +91 98214 88409 or share your requirement via the contact form — we typically respond within one working day." },
 ];
@@ -306,63 +299,9 @@ function FAQItem({ q, a }: { q: string; a: string }) {
     >
       <div className="flex-1">
         <div className="font-medium">{q}</div>
-        {open && (
-          <p className="pt-3 text-sm text-muted-foreground">{a}</p>
-        )}
+        {open && <p className="pt-3 text-sm text-muted-foreground">{a}</p>}
       </div>
-      <ChevronDown
-        size={18}
-        className={`mt-1 shrink-0 text-muted-foreground transition-transform ${open ? "rotate-180" : ""}`}
-      />
+      <ChevronDown size={18} className={`mt-1 shrink-0 text-muted-foreground transition-transform ${open ? "rotate-180" : ""}`} />
     </button>
-  );
-}
-
-function ContactForm() {
-  const [sent, setSent] = useState(false);
-  return (
-    <form
-      onSubmit={(e) => { e.preventDefault(); setSent(true); }}
-      className="rounded-2xl border border-border bg-card p-6 md:p-8 shadow-soft space-y-4"
-    >
-      <div className="grid sm:grid-cols-2 gap-4">
-        <Field label="Full name" name="name" placeholder="Your name" />
-        <Field label="Email" name="email" type="email" placeholder="you@company.com" />
-      </div>
-      <div className="grid sm:grid-cols-2 gap-4">
-        <Field label="Phone" name="phone" placeholder="+91 ..." />
-        <Field label="Company" name="company" placeholder="Optional" />
-      </div>
-      <div>
-        <label className="text-sm font-medium">How can we help?</label>
-        <textarea
-          required rows={4}
-          placeholder="Briefly describe your requirement…"
-          className="mt-1.5 w-full rounded-xl border border-input bg-background px-3.5 py-2.5 text-sm outline-none focus:ring-2 focus:ring-brand-orange/40 focus:border-brand-orange"
-        />
-      </div>
-      <button
-        type="submit"
-        className="inline-flex items-center gap-2 rounded-full bg-brand-plum text-background px-5 py-3 text-sm font-medium hover:opacity-90"
-      >
-        Send message <ArrowRight size={16} />
-      </button>
-      {sent && (
-        <p className="text-sm text-brand-coffee">Thanks — we've received your message and will be in touch shortly.</p>
-      )}
-    </form>
-  );
-}
-
-function Field({ label, name, type = "text", placeholder }: { label: string; name: string; type?: string; placeholder?: string }) {
-  return (
-    <div>
-      <label htmlFor={name} className="text-sm font-medium">{label}</label>
-      <input
-        id={name} name={name} type={type} placeholder={placeholder}
-        required={name !== "company"}
-        className="mt-1.5 w-full rounded-xl border border-input bg-background px-3.5 py-2.5 text-sm outline-none focus:ring-2 focus:ring-brand-orange/40 focus:border-brand-orange"
-      />
-    </div>
   );
 }
