@@ -4,7 +4,6 @@ import { PageHeader } from "@/components/site/PageHeader";
 import { Reveal } from "@/components/site/Reveal";
 import { Phone, Mail, Clock, LifeBuoy, Wrench, ShieldCheck, MonitorCog, ChevronDown } from "lucide-react";
 import { useState } from "react";
-import { motion } from "framer-motion";
 
 export const Route = createFileRoute("/support")({
   head: () => ({
@@ -43,9 +42,9 @@ function FAQItem({ q, a }: { q: string; a: string }) {
     <button onClick={() => setOpen(v => !v)} className="w-full text-left px-6 py-5 flex items-start gap-4 hover:bg-secondary/40 transition-colors">
       <div className="flex-1">
         <div className="font-medium">{q}</div>
-        <motion.div initial={false} animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }} transition={{ duration: 0.25 }} className="overflow-hidden">
+        {open && (
           <p className="pt-3 text-sm text-muted-foreground">{a}</p>
-        </motion.div>
+        )}
       </div>
       <ChevronDown size={18} className={`mt-1 shrink-0 text-muted-foreground transition-transform ${open ? "rotate-180" : ""}`} />
     </button>

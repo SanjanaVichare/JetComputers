@@ -1,24 +1,22 @@
-import { animate, useInView } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
-export function Counter({ to, suffix = "", duration = 1.6 }: { to: number; suffix?: string; duration?: number }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-60px" });
-  const [val, setVal] = useState(0);
+export function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
-    if (!inView) return;
-    const controls = animate(0, to, {
-      duration,
-      ease: [0.2, 0.8, 0.2, 1],
-      onUpdate: (v) => setVal(v),
-    });
-    return () => controls.stop();
-  }, [inView, to, duration]);
+    let start = 0;
+    const step = Math.ceil(to / 60);
+    const timer = setInterval(() => {
+      start += step;
+      if (start >= to) {
+        setCount(to);
+        clearInterval(timer);
+      } else {
+        setCount(start);
+      }
+    }, 16);
+    return () => clearInterval(timer);
+  }, [to]);
 
-  return (
-    <span ref={ref} className="tabular-nums">
-      {Math.round(val).toLocaleString()}{suffix}
-    </span>
-  );
+  return <span>{count}{suffix}</span>;
 }

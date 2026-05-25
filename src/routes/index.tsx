@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import {
   ArrowRight, CheckCircle2, ChevronDown, Server, Cpu, Network, ShieldCheck,
@@ -114,13 +113,6 @@ function HomePage() {
                   className="w-full h-auto"
                 />
               </div>
-              <motion.div
-                initial={{ opacity: 1, y: 0 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.6 }}
-                className="absolute -bottom-6 -left-6 hidden md:flex items-center gap-3 rounded-2xl border border-border bg-card px-4 py-3 shadow-soft"
-              >
-              </motion.div>
             </div>
           </Reveal>
         </div>
@@ -323,14 +315,9 @@ function FAQItem({ q, a }: { q: string; a: string }) {
     >
       <div className="flex-1">
         <div className="font-medium">{q}</div>
-        <motion.div
-          initial={false}
-          animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
-          transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-          className="overflow-hidden"
-        >
+        {open && (
           <p className="pt-3 text-sm text-muted-foreground">{a}</p>
-        </motion.div>
+        )}
       </div>
       <ChevronDown
         size={18}
