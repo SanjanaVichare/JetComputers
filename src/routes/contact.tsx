@@ -65,7 +65,7 @@ function ContactPage() {
                 9A, Samata Society, Nehru Nagar,<br />Kanjurmarg East, Mumbai 400042
               </InfoRow>
               <InfoRow icon={Phone} title="Phone">
-                <a href="tel:+919821488409" className="hover:text-brand-orange">+91 98214 88409</a>
+                <a href="https://wa.me/919821488409" className="hover:text-brand-orange">+91 98214 88409</a>
               </InfoRow>
               <InfoRow icon={Mail} title="Email">
                 <a href="mailto:aniruddha_vichare1@reddifmail.com" className="hover:text-brand-orange break-all">aniruddha_vichare1@reddifmail.com</a>

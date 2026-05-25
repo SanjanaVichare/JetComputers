@@ -9,7 +9,7 @@ import { NetworkBg } from "@/components/site/NetworkBg";
 import { Reveal } from "@/components/site/Reveal";
 import { Counter } from "@/components/site/Counter";
 import { services, whyChooseUs } from "@/components/site/services-data";
-import heroImg from "@/assets/hero.jpg";
+import heroImg from "@/assets/hero.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -70,13 +70,14 @@ function HomePage() {
               from custom PCs and networking to software, servers and ongoing support.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                to="/contact"
+              <a href="https://wa.me/919821488409?text=Hi%20Jet%20Computers%2C%20I%20would%20like%20a%20free%20consultation."
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 rounded-full bg-brand-plum text-background px-5 py-3 text-sm font-medium hover:opacity-90 transition-opacity shadow-soft"
               >
                 Get a free consultation
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
-              </Link>
+              </a>
               <Link
                 to="/services"
                 className="inline-flex items-center gap-2 rounded-full border border-border bg-background/80 backdrop-blur px-5 py-3 text-sm font-medium hover:bg-background transition-colors"
@@ -232,7 +233,7 @@ function HomePage() {
                 Whether it's a single PC build or a full office rollout, we'll listen first and recommend what's right.
               </p>
               <div className="mt-8 space-y-3 text-sm">
-                <a href="tel:+919821488409" className="flex items-center gap-3 text-foreground hover:text-brand-orange">
+                <a href="https://wa.me/919821488409" className="flex items-center gap-3 text-foreground hover:text-brand-orange">
                   <Phone size={18} className="text-brand-coffee" /> +91 98214 88409
                 </a>
                 <a href="mailto:aniruddha_vichare1@reddifmail.com" className="flex items-center gap-3 text-foreground hover:text-brand-orange break-all">

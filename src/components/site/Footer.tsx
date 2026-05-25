@@ -41,7 +41,7 @@ export function Footer() {
           <h4 className="text-sm font-semibold">Contact</h4>
           <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
             <li className="flex gap-2"><MapPin size={16} className="mt-0.5 text-brand-orange shrink-0" /> 9A, Samata Society, Nehru Nagar, Kanjurmarg East, Mumbai 400 042</li>
-            <li className="flex items-center gap-2"><Phone size={16} className="text-brand-orange" /> <a href="tel:+919821488409" className="hover:text-foreground">+91 98214 88409</a></li>
+            <li className="flex items-center gap-2"><Phone size={16} className="text-brand-orange" /> <a href="https://wa.me/919821488409" className="hover:text-foreground">+91 98214 88409</a></li>
             <li className="flex items-center gap-2"><Mail size={16} className="text-brand-orange" /> <a href="mailto:aniruddha_vichare1@reddifmail.com" className="hover:text-foreground break-all">aniruddha_vichare1@reddifmail.com</a></li>
           </ul>
         </div>
